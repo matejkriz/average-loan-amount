@@ -1,0 +1,14 @@
+# npm
+/node_modules/
+npm-debug.log
+
+# next
+/.next/
+
+# storybook
+/storybook-dist/
+
+.env
+
+# misc
+.idea

@@ -1,0 +1,41 @@
+{
+  "name": "average-loan-amount",
+  "version": "1.0.0",
+  "description": "Get average amount of the loan for specified rating.",
+  "main": "index.js",
+  "repository": "https://matejkriz@github.com/matejkriz/average-loan-amount.git",
+  "author": "Matěj Kříž",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "eslint": "eslint .",
+    "prettier": "prettier --print-width 80 --tab-width 2 --single-quote --trailing-comma all --bracket-spacing --parser babylon --write '{src,pages}/**/*.js'",
+    "flow": "flow",
+    "test": "yarn run eslint && yarn run flow"
+  },
+  "dependencies": {
+    "next": "^2.4.7",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-eslint": "^7.2.3",
+    "babel-preset-flow": "^6.23.0",
+    "eslint": "^4.2.0",
+    "eslint-config-airbnb": "^15.0.2",
+    "eslint-config-prettier": "^2.3.0",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-babel": "^4.1.1",
+    "eslint-plugin-flowtype": "^2.35.0",
+    "eslint-plugin-fp": "^2.3.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-prettier": "^2.1.2",
+    "eslint-plugin-react": "^7.1.0",
+    "flow-bin": "^0.50.0",
+    "prettier": "^1.5.3"
+  }
+}
