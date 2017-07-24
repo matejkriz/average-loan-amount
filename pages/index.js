@@ -29,13 +29,16 @@ const calculateAverageByField = (list: Array<any>, field: string) =>
   list.reduce((sum, item) => sum + item[field], 0) / list.length;
 
 /* Fetch all loans and return average loan amount depending on selected ratings */
-const getAverageAmount = async (selectedRatings: Array<string>) => {
-  const { headers, path } = api;
+const getAverageAmount = async (
+  selectedRatings: Array<string>,
+  isOnClient?: boolean = false,
+) => {
+  const { corsProxy, headers, path } = api;
 
   const queryString = selectedRatings.length
     ? `?rating__in=${getRatingQuery(selectedRatings)}`
     : '';
-  const url = path + queryString;
+  const url = isOnClient ? corsProxy + path + queryString : path + queryString;
 
   const response = await fetch(url, {
     headers,
@@ -67,11 +70,12 @@ const Page = ({ averageAmount, selectedRatings }: PageProps) =>
     `}</style>
   </div>;
 
-Page.getInitialProps = async ({ query }) => {
+Page.getInitialProps = async ({ query, req }) => {
+  const isOnClient = !req;
   const selectedRatings = Object.prototype.hasOwnProperty.call(query, 'rating')
     ? getSelectedRatings(query.rating)
     : [];
-  const averageAmount = await getAverageAmount(selectedRatings);
+  const averageAmount = await getAverageAmount(selectedRatings, isOnClient);
 
   return {
     averageAmount,
