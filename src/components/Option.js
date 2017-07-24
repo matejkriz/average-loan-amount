@@ -9,7 +9,8 @@ type OptionProps = {
 };
 
 /* Convert list of values to query string */
-export const getQuery = (values: Array<string>) => encodeURI(values.join(','));
+export const getQuery = (values: Array<string>) =>
+  encodeURI([...values].sort().join(','));
 
 /* Compose list of ratings selected after click of the link */
 const composeValues = (

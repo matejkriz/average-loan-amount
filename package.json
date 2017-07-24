@@ -7,16 +7,18 @@
   "author": "Matěj Kříž",
   "license": "MIT",
   "scripts": {
-    "dev": "next",
+    "dev": "node server.js",
     "build": "next build",
-    "start": "next start",
+    "start": "NODE_ENV=production node server.js",
     "eslint": "eslint .",
     "prettier": "prettier --print-width 80 --tab-width 2 --single-quote --trailing-comma all --bracket-spacing --parser babylon --write '{src,pages}/**/*.js'",
     "flow": "flow",
     "test": "yarn run eslint && yarn run flow"
   },
   "dependencies": {
+    "express": "^4.15.3",
     "isomorphic-unfetch": "^2.0.0",
+    "lru-cache": "^4.1.1",
     "next": "^2.4.7",
     "react": "^15.6.1",
     "react-dom": "^15.6.1"
